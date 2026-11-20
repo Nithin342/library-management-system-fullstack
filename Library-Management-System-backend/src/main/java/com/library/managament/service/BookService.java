@@ -12,6 +12,7 @@ import com.library.managament.dto.BookDTO;
 import com.library.managament.entity.Author;
 import com.library.managament.entity.Book;
 import com.library.managament.exception.AuthorNotFoundException;
+import com.library.managament.exception.BookCatalogLimitExceededException;
 import com.library.managament.exception.BookDeletionException;
 import com.library.managament.exception.BookNotFoundException;
 import com.library.managament.exception.DuplicateIsbnException;
@@ -23,6 +24,8 @@ import com.library.managament.repository.BookRepository;
 
 @Service
 public class BookService {
+
+    private static final long MAX_BOOK_RECORDS = 5_000;
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
@@ -43,6 +46,11 @@ public class BookService {
     	            "Book already exists with ISBN: "
     	            + bookDTO.getIsbn());
     	}
+
+        if (bookRepository.count() >= MAX_BOOK_RECORDS) {
+            throw new BookCatalogLimitExceededException(
+                    "The catalog is full. It can contain at most 5,000 books.");
+        }
 
     	  Author author = authorRepository.findById(bookDTO.getAuthorId())
     	            .orElseThrow(() ->

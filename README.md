@@ -96,7 +96,7 @@ The application provides book, author, member, borrowing, and fine management wi
 \- Pagination
 
 \- Server-side book pagination with a maximum page size of 100
-
+\- Limit the catalog to 5,000 distinct book records
 \- Track total and available quantities
 
 \- Prevent duplicate ISBNs

@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+      @ExceptionHandler(BookCatalogLimitExceededException.class)
+      public ResponseEntity<String> handleBookCatalogLimitExceeded(
+              BookCatalogLimitExceededException ex) {
+          return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+      }
+
 	  @ExceptionHandler(BookNotFoundException.class)
 	    public ResponseEntity<String> handleBookNotFoundException(BookNotFoundException ex) {
 	        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
