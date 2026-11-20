@@ -13,61 +13,90 @@ function Books() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(0);
-const [totalPages, setTotalPages] = useState(0);
-const [totalBooks, setTotalBooks] = useState(0);
+  const [pageSize, setPageSize] = useState(100);
+  const [pageInput, setPageInput] = useState("1");
+  const [appliedSearch, setAppliedSearch] = useState("");
+  const [appliedCategory, setAppliedCategory] = useState("");
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalBooks, setTotalBooks] = useState(0);
 
   const navigate = useNavigate();
 
  useEffect(() => {
-  getBooks();
-}, [page]);
+  let isCurrentRequest = true;
 
- const getBooks = async () => {
-  try {
-    const response = await api.get("/books/page", {
-      params: {
-        page: page,
-        size: 5,
-      },
-    });
+  const loadBooks = async () => {
+    try {
+      const hasFilters = appliedSearch.trim() !== "" || appliedCategory.trim() !== "";
+      const response = await api.get(
+        hasFilters ? "/books/search/page" : "/books/page",
+        {
+          params: {
+            page,
+            size: pageSize,
+            title: appliedSearch.trim() || null,
+            category: appliedCategory.trim() || null,
+            sortBy: "id",
+            direction: "asc",
+          },
+        }
+      );
 
-    setBooks(response.data.content);
-    setTotalPages(response.data.totalPages);
-    setTotalBooks(response.data.totalElements);
-  } catch (error) {
-    console.log(error);
-    setError("Failed to load books.");
-  } finally {
-    setLoading(false);
-  }
+      if (!isCurrentRequest) {
+        return;
+      }
+
+      setBooks(response.data.content);
+      setTotalPages(response.data.totalPages);
+      setTotalBooks(response.data.totalElements);
+    } catch (error) {
+      if (!isCurrentRequest) {
+        return;
+      }
+
+      console.log(error);
+      setError("Failed to load books.");
+    } finally {
+      if (isCurrentRequest) {
+        setLoading(false);
+      }
+    }
+  };
+
+  loadBooks();
+
+  return () => {
+    isCurrentRequest = false;
+  };
+}, [page, pageSize, appliedSearch, appliedCategory]);
+
+const searchBooks = () => {
+  setPage(0);
+  setPageInput("1");
+  setAppliedSearch(search);
+  setAppliedCategory(category);
 };
 
-const searchBooks = async () => {
-  try {
-    if (search.trim() === "" && category.trim() === "") {
-      setPage(0);
-      return;
-    }
+const pageButtonCount = 5;
+const firstPageButton = Math.max(
+  0,
+  Math.min(page - Math.floor(pageButtonCount / 2), totalPages - pageButtonCount)
+);
+const visiblePageNumbers = Array.from(
+  { length: Math.min(pageButtonCount, totalPages) },
+  (_, index) => firstPageButton + index
+);
 
-    const response = await api.get("/books/search/page", {
-      params: {
-        title: search.trim() || null,
-        category: category.trim() || null,
-        page: 0,
-        size: 5,
-        sortBy: "id",
-        direction: "asc",
-      },
-    });
+const changePage = (nextPage) => {
+  setPage(nextPage);
+  setPageInput(String(nextPage + 1));
+};
 
-    setBooks(response.data.content);
-    setTotalPages(response.data.totalPages);
-    setTotalBooks(response.data.totalElements);
-    setPage(0);
+const goToPage = () => {
+  const requestedPage = Number(pageInput);
 
-  } catch (error) {
-    console.log(error);
-    setError("Failed to search books.");
+  if (Number.isInteger(requestedPage) && requestedPage >= 1 && requestedPage <= totalPages) {
+    changePage(requestedPage - 1);
   }
 };
 
@@ -165,6 +194,21 @@ const deleteBook = async (id) => {
 </div>
       <p>Total Books: {totalBooks}</p>
 
+      <label className="books-page-size">
+        Books per page:
+        <select
+          value={pageSize}
+          onChange={(event) => {
+            setPageSize(Number(event.target.value));
+            changePage(0);
+          }}
+        >
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </label>
+
       <div className="books-table-container">
 
         <table>
@@ -226,25 +270,42 @@ const deleteBook = async (id) => {
    <div className="pagination">
 
   <button
-    onClick={() => setPage(page - 1)}
+    onClick={() => changePage(page - 1)}
     disabled={page === 0}
   >
     Previous
   </button>
 
-  {Array.from({ length: totalPages }, (_, index) => (
+  {firstPageButton > 0 && <span>...</span>}
+
+  {visiblePageNumbers.map((pageNumber) => (
     <button
-      key={index}
-      onClick={() => setPage(index)}
-      disabled={page === index}
+      key={pageNumber}
+      onClick={() => changePage(pageNumber)}
+      disabled={page === pageNumber}
+      aria-current={page === pageNumber ? "page" : undefined}
     >
-      {index + 1}
+      {pageNumber + 1}
     </button>
   ))}
 
+  {firstPageButton + visiblePageNumbers.length < totalPages && <span>...</span>}
+
+  <span>Page {page + 1} of {totalPages}</span>
+
+  <input
+    type="number"
+    min="1"
+    max={totalPages}
+    value={pageInput}
+    aria-label="Page number"
+    onChange={(event) => setPageInput(event.target.value)}
+  />
+  <button onClick={goToPage} disabled={totalPages === 0}>Go</button>
+
   <button
-    onClick={() => setPage(page + 1)}
-    disabled={page === totalPages - 1}
+    onClick={() => changePage(page + 1)}
+    disabled={page >= totalPages - 1}
   >
     Next
   </button>

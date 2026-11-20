@@ -41,16 +41,23 @@ public class BookController {
 	    }
 
 	    @GetMapping
-	    public List<BookDTO> getAllBooks() {
-	        return bookService.getAllBooks();
+	    public Page<BookDTO> getBooks(
+	            @RequestParam(defaultValue = "0") int page,
+	            @RequestParam(defaultValue = "100") int size) {
+
+	        return bookService.getBooksWithPagination(
+	                page, size, "id", "asc");
 	    }
 	    
 	    @GetMapping("/search")
-	    public List<BookDTO> searchBooks(
+	    public Page<BookDTO> searchBooks(
 	            @RequestParam(required = false) String title,
-	            @RequestParam(required = false) String category) {
+	            @RequestParam(required = false) String category,
+	            @RequestParam(defaultValue = "0") int page,
+	            @RequestParam(defaultValue = "100") int size) {
 
-	        return bookService.searchBooks(title, category);
+	        return bookService.searchBooksWithPagination(
+	                title, category, page, size, "id", "asc");
 	    }
 	    
 	    @GetMapping("/search/page")

@@ -78,15 +78,6 @@ public class BookService {
         return responseDTO;
     }
 
-    // GET ALL
-    public List<BookDTO> getAllBooks() {
-
-        return bookRepository.findAll()
-                .stream()
-                .map(this::convertToDTO)
-                .toList();
-    }
-
     // GET BY ID
     public BookDTO getBookById(Long id) {
 
@@ -98,41 +89,6 @@ public class BookService {
         return convertToDTO(book);
     }
     
-    public List<BookDTO> searchBooks(String title, String category) {
-
-        if (title != null && !title.isBlank()
-                && category != null && !category.isBlank()) {
-
-            return bookRepository
-                    .findByTitleContainingIgnoreCase(title)
-                    .stream()
-                    .filter(book -> book.getCategory()
-                            .equalsIgnoreCase(category))
-                    .map(this::convertToDTO)
-                    .toList();
-        }
-
-        if (title != null && !title.isBlank()) {
-
-            return bookRepository
-                    .findByTitleContainingIgnoreCase(title)
-                    .stream()
-                    .map(this::convertToDTO)
-                    .toList();
-        }
-
-        if (category != null && !category.isBlank()) {
-
-            return bookRepository
-                    .findByCategoryIgnoreCase(category)
-                    .stream()
-                    .map(this::convertToDTO)
-                    .toList();
-        }
-
-        return getAllBooks();
-    }
-
     // UPDATE
     public BookDTO updateBook(Long id, BookDTO updatedBook) {
     	
@@ -307,7 +263,7 @@ public class BookService {
 
         dto.setId(book.getId());
         dto.setTitle(book.getTitle());
-        dto.setAuthorId(book.getAuthor().getId());
+        dto.setAuthorId(book.getAuthor() == null ? null : book.getAuthor().getId());
         dto.setCategory(book.getCategory());
         dto.setIsbn(book.getIsbn());
         dto.setPrice(book.getPrice());

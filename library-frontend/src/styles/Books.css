@@ -112,6 +112,27 @@
   margin-bottom: 25px;
 }
 
+.books-page-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.books-page-size select,
+.pagination input {
+  height: 38px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.pagination input {
+  width: 76px;
+  box-sizing: border-box;
+}
+
 /* Table */
 
 .books-table-container {

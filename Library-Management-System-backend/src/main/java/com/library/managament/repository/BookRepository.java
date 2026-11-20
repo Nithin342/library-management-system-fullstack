@@ -3,7 +3,6 @@ package com.library.managament.repository;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
@@ -13,10 +12,6 @@ import com.library.managament.entity.*;
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	List<Book> findByAuthorId(Long authorId);
-
-	List<Book> findByTitleContainingIgnoreCase(String title);
-	
-	List<Book> findByCategoryIgnoreCase(String category);
 	
 	boolean existsByIsbn(String isbn);
 	

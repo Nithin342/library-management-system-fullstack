@@ -116,6 +116,30 @@ body,
   color: #e2e8f0;
 }
 
+#root .pagination button {
+  background-color: #0b1324;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+#root .pagination button:hover:not(:disabled) {
+  background-color: #1e293b;
+  border-color: #64748b;
+}
+
+#root .pagination button:disabled {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #94a3b8;
+  opacity: 1;
+}
+
+#root .pagination button[aria-current="page"] {
+  background-color: #2563eb;
+  border-color: #60a5fa;
+  color: #fff;
+}
+
 #root :is(.view-books-btn, .view-borrowings-btn, .return-book-btn) {
   background-color: #1e3a5f;
   color: #bfdbfe;
