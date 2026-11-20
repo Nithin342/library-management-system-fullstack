@@ -2,6 +2,7 @@ services:
   - type: web
     name: library-management-api
     runtime: docker
+    plan: free
     dockerfilePath: ./Library-Management-System-backend/Dockerfile
     dockerContext: ./Library-Management-System-backend
     healthCheckPath: /health
