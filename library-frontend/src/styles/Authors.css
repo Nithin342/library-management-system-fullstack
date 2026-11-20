@@ -1,0 +1,142 @@
+.authors-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background-color: #f4f6f8;
+}
+
+/* Header */
+
+.authors-header {
+  text-align: center;
+}
+
+.authors-header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+/* Back + Add Author buttons */
+
+.author-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0 35px;
+}
+
+.back-dashboard-btn,
+.add-author-btn {
+  height: 44px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Back to Dashboard */
+
+.back-dashboard-btn {
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.back-dashboard-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Add Author */
+
+.add-author-btn {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-author-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Total Authors */
+
+.total-authors {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Table Container */
+
+.authors-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.authors-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.authors-table-container th,
+.authors-table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.authors-table-container th {
+  font-weight: bold;
+}
+
+.authors-table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Action Buttons */
+
+.edit-author-btn,
+.delete-author-btn,
+.view-books-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.edit-author-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.edit-author-btn:hover {
+  background: #d1d5db;
+}
+
+.delete-author-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-author-btn:hover {
+  background: #fecaca;
+}
+
+.view-books-btn {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.view-books-btn:hover {
+  background: #c7d2fe;
+}

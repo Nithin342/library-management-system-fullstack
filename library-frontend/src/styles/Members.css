@@ -1,0 +1,142 @@
+.members-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background-color: #f4f6f8;
+}
+
+/* Header */
+
+.members-header {
+  text-align: center;
+}
+
+.members-header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+/* Back + Add Member */
+
+.member-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0 35px;
+}
+
+.back-dashboard-btn,
+.add-member-btn {
+  height: 44px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Back */
+
+.back-dashboard-btn {
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.back-dashboard-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Add Member */
+
+.add-member-btn {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-member-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Total Members */
+
+.total-members {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Table Container */
+
+.members-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.members-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.members-table-container th,
+.members-table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.members-table-container th {
+  font-weight: bold;
+}
+
+.members-table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Action Buttons */
+
+.edit-btn,
+.delete-btn,
+.view-borrowings-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.edit-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.edit-btn:hover {
+  background: #d1d5db;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+.view-borrowings-btn {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.view-borrowings-btn:hover {
+  background: #c7d2fe;
+}

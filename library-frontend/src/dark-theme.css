@@ -1,0 +1,130 @@
+:root {
+  color-scheme: dark;
+  --text: #cbd5e1;
+  --text-h: #f1f5f9;
+  --bg: #0b1120;
+  --border: #334155;
+  --code-bg: #1e293b;
+  --accent: #60a5fa;
+  --accent-bg: rgba(96, 165, 250, 0.14);
+  --accent-border: rgba(96, 165, 250, 0.5);
+  --social-bg: #1e293b;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+body,
+#root {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root h1,
+#root h2,
+#root h3,
+#root label,
+#root th {
+  color: var(--text-h);
+}
+
+#root :is(
+  .dashboard-page,
+  .books-page,
+  .authors-page,
+  .members-page,
+  .borrowings-page,
+  .fines-page,
+  .author-books-page,
+  .login-page,
+  .add-book-page,
+  .add-author-page,
+  .add-member-page,
+  .edit-author-page,
+  .edit-member-page,
+  .borrow-book-page
+) {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root :is(
+  .dashboard-header,
+  .dashboard-card,
+  .login-container,
+  .add-book-container,
+  .add-author-container,
+  .add-member-container,
+  .edit-author-container,
+  .edit-member-container,
+  .borrow-book-container,
+  .books-table-container,
+  .authors-table-container,
+  .members-table-container,
+  .borrowings-table-container,
+  .fines-table-container,
+  .author-books-page table
+) {
+  background-color: #111b2e;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+#root :is(
+  input,
+  select,
+  textarea,
+  .back-dashboard-btn,
+  .back-authors-btn
+) {
+  background-color: #0b1324;
+  color: var(--text-h);
+  border-color: var(--border);
+}
+
+#root :is(input, select, textarea)::placeholder {
+  color: #94a3b8;
+}
+
+#root :is(input, select, textarea):focus {
+  border-color: #60a5fa;
+  outline-color: #60a5fa;
+}
+
+#root table {
+  color: var(--text);
+}
+
+#root th,
+#root td {
+  border-color: var(--border);
+}
+
+#root tbody tr:hover {
+  background-color: #1e293b;
+}
+
+#root .dashboard-card {
+  text-decoration: none;
+}
+
+#root .dashboard-card:hover {
+  border-color: #475569;
+}
+
+#root :is(.edit-book-btn, .edit-author-btn, .edit-btn) {
+  background-color: #334155;
+  color: #e2e8f0;
+}
+
+#root :is(.view-books-btn, .view-borrowings-btn, .return-book-btn) {
+  background-color: #1e3a5f;
+  color: #bfdbfe;
+}
+
+#root :is(.paid-status, .unpaid-status) {
+  border: 1px solid currentColor;
+}
+
+#root a:not(.navbar a):not(.add-book-btn):not(.add-author-btn):not(.add-member-btn):not(.dashboard-card) {
+  color: #93c5fd;
+}

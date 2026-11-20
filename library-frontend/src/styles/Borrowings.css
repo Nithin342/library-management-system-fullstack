@@ -1,0 +1,117 @@
+.borrowings-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background-color: #f4f6f8;
+}
+
+/* Header */
+
+.borrowings-header {
+  text-align: center;
+}
+
+.borrowings-header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+/* Back + Borrow Book */
+
+.borrowing-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0 35px;
+}
+
+.back-dashboard-btn,
+.borrow-book-btn {
+  height: 44px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Back to Dashboard */
+
+.back-dashboard-btn {
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.back-dashboard-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Borrow Book */
+
+.borrow-book-btn {
+  border: none;
+  background: #2563eb;
+  color: white;
+}
+
+.borrow-book-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Total Borrowings */
+
+.total-borrowings {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Table Container */
+
+.borrowings-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.borrowings-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.borrowings-table-container th,
+.borrowings-table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.borrowings-table-container th {
+  font-weight: bold;
+}
+
+.borrowings-table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Return Book */
+
+.return-book-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.return-book-btn:hover {
+  background: #c7d2fe;
+}

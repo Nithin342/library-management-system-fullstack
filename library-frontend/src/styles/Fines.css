@@ -1,0 +1,119 @@
+.fines-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background-color: #f4f6f8;
+}
+
+/* Header */
+
+.fines-header {
+  text-align: center;
+}
+
+.fines-header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+/* Back to Dashboard */
+
+.fine-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 35px;
+}
+
+.back-dashboard-btn {
+  height: 44px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-dashboard-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Total Fines */
+
+.total-fines {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Table Container */
+
+.fines-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.fines-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fines-table-container th,
+.fines-table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.fines-table-container th {
+  font-weight: bold;
+}
+
+.fines-table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Pay Fine */
+
+.pay-fine-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-fine-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Paid / Unpaid */
+
+.paid-status,
+.unpaid-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.paid-status {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.unpaid-status {
+  background: #fee2e2;
+  color: #b91c1c;
+}

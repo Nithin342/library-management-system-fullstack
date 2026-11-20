@@ -1,0 +1,58 @@
+.author-books-page {
+  min-height: calc(100vh - 67px);
+  padding: 35px 40px;
+  background: #f5f7fa;
+}
+
+.author-books-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.author-books-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.back-authors-btn {
+  height: 44px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-authors-btn:hover {
+  background: #f1f1f1;
+}
+
+.total-author-books {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.author-books-page table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.author-books-page th,
+.author-books-page td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.author-books-page th {
+  font-weight: 600;
+}
+
+.author-books-page tbody tr:hover {
+  background: #f8fafc;
+}

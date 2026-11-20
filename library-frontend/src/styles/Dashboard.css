@@ -1,0 +1,64 @@
+.dashboard-page {
+  min-height: 100vh;
+  background-color: #f4f6f8;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+}
+
+.dashboard-header button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard-content {
+  padding: 40px;
+}
+
+.dashboard-content h2 {
+  margin-bottom: 5px;
+}
+
+.dashboard-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h3 {
+  margin-top: 0;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+}
+
+.dashboard-page {
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  padding: 30px;
+}

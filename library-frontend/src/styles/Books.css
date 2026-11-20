@@ -1,0 +1,203 @@
+.books-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background-color: #f4f6f8;
+}
+
+/* Header */
+
+.books-header {
+  text-align: center;
+}
+
+.books-header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+/* Back + Add Book buttons */
+
+.book-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0 35px;
+}
+
+.back-dashboard-btn,
+.add-book-btn {
+  height: 44px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Back to Dashboard */
+
+.back-dashboard-btn {
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.back-dashboard-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Add Book */
+
+.add-book-btn {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-book-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Search */
+
+.books-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.books-search input {
+  width: 220px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.books-search input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.books-search button {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.books-search button:hover {
+  background: #1d4ed8;
+}
+
+/* Total Books */
+
+.total-books {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Table */
+
+.books-table-container {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.books-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.books-table-container th,
+.books-table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.books-table-container th {
+  font-weight: bold;
+}
+
+.books-table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Edit and Delete */
+
+.edit-book-btn,
+.delete-book-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.edit-book-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.edit-book-btn:hover {
+  background: #d1d5db;
+}
+
+.delete-book-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-book-btn:hover {
+  background: #fecaca;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.pagination button {
+  min-width: 40px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f1f1f1;
+}
+
+.pagination button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
