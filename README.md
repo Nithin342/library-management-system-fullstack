@@ -54,7 +54,8 @@ The application provides book, author, member, borrowing, and fine management wi
 
 \### Database
 
-\- MySQL
+\- MySQL for local development
+\- PostgreSQL for cloud deployments
 
 
 
