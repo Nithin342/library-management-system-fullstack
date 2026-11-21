@@ -328,6 +328,7 @@ public class BorrowingService {
 	        dto.setId(borrowing.getId());
 	        dto.setMemberId(borrowing.getMember().getId());
 	        dto.setBookId(borrowing.getBook().getId());
+	        dto.setBookTitle(borrowing.getBook().getTitle());
 	        dto.setBorrowDate(borrowing.getBorrowDate());
 	        dto.setReturnDate(borrowing.getReturnDate());
 	        dto.setStatus(borrowing.getStatus().name());
