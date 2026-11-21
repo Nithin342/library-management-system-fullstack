@@ -241,28 +241,28 @@ Library-Management-System
 
 &#x20;   └── vite.config.js
 
-## Run locally
+## Run locally on Windows
 
-The backend uses a local H2 database by default, so no database server is required.
+The backend uses H2 by default; no database server is required. To use a local database instead, create `Library-Management-System-backend/data/application-local.properties` (this file is git-ignored) with your Spring datasource settings. The backend imports it automatically when present.
 
-1. Start the backend from `Library-Management-System-backend`:
-
-   ```powershell
-   .\mvnw.cmd spring-boot:run
-   ```
-
-   It listens on `http://localhost:8080`; local database files are stored under the ignored `data` directory.
-   For a fresh local database, an initial admin can be created by setting `ADMIN_BOOTSTRAP_ENABLED=true` and a strong `ADMIN_PASSWORD` before starting the backend. Bootstrap is disabled by default; do not enable it in production.
-2. In a second terminal, start the frontend from `library-frontend`:
+1. Install Java 17 and Node.js.
+2. From the repository root, install frontend dependencies once:
 
    ```powershell
+   cd .\library-frontend
    npm ci
-   npm run dev
+   cd ..
    ```
 
-   Open `http://localhost:5173`.
+3. Start both services and open the frontend:
 
-For MySQL, set `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` before starting the backend. Set `JWT_SECRET` to a long random value outside local development.
+   ```powershell
+   .\run-local.ps1
+   ```
+
+   The frontend is at `http://localhost:5173` and the backend health endpoint is `http://localhost:8080/health`. The script reuses services already listening on those ports and opens a separate PowerShell window for each service it starts.
+
+For a fresh local database, create the first admin account by sending a `POST` request to `http://localhost:8080/users` with JSON fields `username`, `password`, and `role` set to `ADMIN`. Admin bootstrap is disabled by default; if you enable it explicitly, set a strong `ADMIN_PASSWORD`. Never commit local database credentials or passwords.
 
 ## Deploy on Render
 
