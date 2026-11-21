@@ -53,6 +53,7 @@ function MemberBorrowings() {
             <tr>
               <th>ID</th>
               <th>Book ID</th>
+              <th>Book Name</th>
               <th>Borrow Date</th>
               <th>Due Date</th>
               <th>Return Date</th>
@@ -65,6 +66,7 @@ function MemberBorrowings() {
               <tr key={borrowing.id}>
                 <td>{borrowing.id}</td>
                 <td>{borrowing.bookId}</td>
+                <td>{borrowing.bookTitle}</td>
                 <td>{borrowing.borrowDate}</td>
                 <td>{borrowing.dueDate}</td>
                 <td>{borrowing.returnDate || "-"}</td>

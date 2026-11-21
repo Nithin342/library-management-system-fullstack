@@ -14,6 +14,8 @@ public class BorrowingDTO {
 	
 	@NotNull(message = "Book ID is required")
 	private Long bookId;
+
+	private String bookTitle;
 	
 	private LocalDate borrowDate;
 	
@@ -70,6 +72,14 @@ public class BorrowingDTO {
 
 	public void setBookId(Long bookId) {
 		this.bookId = bookId;
+	}
+
+	public String getBookTitle() {
+		return bookTitle;
+	}
+
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
 	}
 
 	public LocalDate getBorrowDate() {
