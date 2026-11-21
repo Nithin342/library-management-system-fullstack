@@ -252,6 +252,7 @@ The backend uses a local H2 database by default, so no database server is requir
    ```
 
    It listens on `http://localhost:8080`; local database files are stored under the ignored `data` directory.
+   For a fresh local database, an initial admin can be created by setting `ADMIN_BOOTSTRAP_ENABLED=true` and a strong `ADMIN_PASSWORD` before starting the backend. Bootstrap is disabled by default; do not enable it in production.
 2. In a second terminal, start the frontend from `library-frontend`:
 
    ```powershell
