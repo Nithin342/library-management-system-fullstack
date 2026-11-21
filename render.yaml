@@ -1,3 +1,9 @@
+databases:
+  - name: library-management-db
+    databaseName: library_management
+    user: library_management
+    plan: free
+
 services:
   - type: web
     name: library-management-api
@@ -7,16 +13,17 @@ services:
     dockerContext: ./Library-Management-System-backend
     healthCheckPath: /health
     envVars:
-      - key: DB_URL
-        sync: false
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: library-management-db
+          property: connectionString
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ALLOWED_ORIGINS
-        value: https://library-management-frontend-fc47.onrender.com
+        fromService:
+          type: static
+          name: library-management-frontend
+          envVarKey: RENDER_EXTERNAL_URL
       - key: SPRING_JPA_SHOW_SQL
         value: "false"
 
@@ -32,4 +39,7 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://library-management-api-ogj9.onrender.com
+        fromService:
+          type: web
+          name: library-management-api
+          envVarKey: RENDER_EXTERNAL_URL

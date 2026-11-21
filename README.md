@@ -241,3 +241,31 @@ Library-Management-System
 
 &#x20;   └── vite.config.js
 
+## Run locally
+
+The backend uses a local H2 database by default, so no database server is required.
+
+1. Start the backend from `Library-Management-System-backend`:
+
+   ```powershell
+   .\mvnw.cmd spring-boot:run
+   ```
+
+   It listens on `http://localhost:8080`; local database files are stored under the ignored `data` directory.
+2. In a second terminal, start the frontend from `library-frontend`:
+
+   ```powershell
+   npm ci
+   npm run dev
+   ```
+
+   Open `http://localhost:5173`.
+
+For MySQL, set `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` before starting the backend. Set `JWT_SECRET` to a long random value outside local development.
+
+## Deploy on Render
+
+The root `render.yaml` is a Render Blueprint for the API, frontend, and a PostgreSQL database. In Render, create a **Blueprint Instance** from this repository and deploy it. Render supplies the database URL, generated JWT secret, and service URLs; no credentials need to be committed. Existing `DB_URL` settings on an already-configured Render service continue to take precedence over the new database URL.
+
+The Blueprint uses Render's free PostgreSQL plan, which expires after 30 days, and free web services can take about a minute to wake after inactivity. Choose a paid database plan for data that must persist.
+
